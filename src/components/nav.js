@@ -82,6 +82,7 @@ export default function Nav() {
       {
         links.map(link => (
           <StyledTab
+            key={link.label}
             className={classes.item}
             disableRipple={true}
             disableFocusRipple={true}

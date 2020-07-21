@@ -48,24 +48,6 @@ const Header = ({ siteTitle }) => {
           <Grid item>
             <Grid container>
               <Nav/>
-              {/*// <Grid item>*/}
-              {/*  <Link*/}
-              {/*    to="/"*/}
-              {/*    className={classes.link}*/}
-              {/*    underline={"none"}*/}
-              {/*  >*/}
-              {/*    AA*/}
-              {/*  </Link>*/}
-              {/*</Grid>*/}
-              {/*<Grid item>*/}
-              {/*  <Link*/}
-              {/*    to="/"*/}
-              {/*    className={classes.link}*/}
-              {/*    underline={"none"}*/}
-              {/*  >*/}
-              {/*    BB*/}
-              {/*  </Link>*/}
-              {/*</Grid>*/}
             </Grid>
           </Grid>
         </Grid>
