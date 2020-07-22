@@ -2,6 +2,7 @@ import React from "react"
 import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import { makeStyles, withStyles } from "@material-ui/core/styles"
+import { useSiteNav } from "../hooks/use-site-nav"
 
 const useStyles = makeStyles({
   item: {
@@ -11,7 +12,7 @@ const useStyles = makeStyles({
 
 const StyledTabs = withStyles({
   root: {
-    minHeight: 0,
+    minHeight: 0
   },
   indicator: {
     display: "flex",
@@ -33,37 +34,20 @@ const StyledTab = withStyles((theme) => ({
     fontSize: theme.typography.pxToRem(18),
     marginRight: theme.spacing(1),
     minWidth: 0,
-    padding: '2px 24px',
+    padding: "2px 24px",
     "&:focus": {
       opacity: 1
     },
     "&$selected": {
       color: "#a203ee",
       fontWeight: theme.typography.fontWeightMedium
-    },
+    }
   }
 }))((props) => <Tab disableRipple {...props} />)
 
-// Home            Demos            Our Team            FAQs            Contact US
-const links = [
-  {
-    label: 'Home',
-  },
-  {
-    label: 'Demos',
-  },
-  {
-    label: 'Our Team',
-  },
-  {
-    label: 'FAQs',
-  },
-  {
-    label: 'Contact Us',
-  }
-];
-
 export default function Nav() {
+  const nav = useSiteNav()
+
   const classes = useStyles()
   const [value, setValue] = React.useState(0)
 
@@ -80,13 +64,13 @@ export default function Nav() {
       centered
     >
       {
-        links.map(link => (
+        nav.map(navItem => (
           <StyledTab
-            key={link.label}
+            key={navItem.hash}
             className={classes.item}
             disableRipple={true}
             disableFocusRipple={true}
-            label={link.label}
+            label={navItem.title}
           />))
       }
     </StyledTabs>

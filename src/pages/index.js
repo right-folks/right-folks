@@ -1,10 +1,11 @@
 import React from "react"
+import CssBaseline from "@material-ui/core/CssBaseline"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import CssBaseline from "@material-ui/core/CssBaseline"
 import { makeStyles } from "@material-ui/core/styles"
 import SectionTitle from "../components/SectionTitle"
 import MainSection from "../components/Sections/Main"
+import { useSiteNav } from "../hooks/use-site-nav"
 
 const useStyles = makeStyles((theme) => ({
   item: {
@@ -26,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const IndexPage = () => {
+  const nav = useSiteNav()
+
   const classes = useStyles()
 
   return <>
@@ -33,10 +36,14 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Right Folks"/>
       <MainSection/>
-      <SectionTitle text={"Demos"}/>
-      <SectionTitle text={"Our Team"}/>
-      <SectionTitle text={"FAQs"}/>
-      <SectionTitle text={"Contact Us"}/>
+      {
+        nav.map(navItem => (
+          <SectionTitle
+            key={navItem.hash}
+            text={navItem.title}
+          />
+        ))
+      }
     </Layout>
   </>
 }
