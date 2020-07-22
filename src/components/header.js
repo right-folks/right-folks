@@ -2,57 +2,60 @@ import React from "react"
 import { Link } from "gatsby-theme-material-ui"
 import { makeStyles } from "@material-ui/core/styles"
 import PropTypes from "prop-types"
-import { Grid } from "@material-ui/core"
+import { AppBar, Grid } from "@material-ui/core"
 import Nav from "./nav"
+import ElevationScroll from "./ElevationScroll"
 
 const useStyles = makeStyles((theme) => ({
-  link: {
-    color: "#233348",
-    fontFamily: theme.typography.h2.fontFamily,
-    textDecoration: `none`
-  }
-}))
+    appBar: {
+      backgroundColor: theme.palette.background.default
+    }
+  })
+)
 
 const Header = ({ siteTitle }) => {
   const classes = useStyles()
 
   return (
-    <header
-      style={{
-        marginBottom: `1.45rem`
-      }}
-    >
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `1.45rem 1.0875rem`
-        }}
+    <ElevationScroll elevation={3}>
+      <AppBar
+        className={classes.appBar}
+        position={"sticky"}
       >
-        <Grid
-          container
-          justify={"space-between"}
-          alignItems={"center"}
-        >
-          <Grid item>
-            <h2 style={{ margin: 0 }}>
-              <Link
-                to="/"
-                className={classes.link}
-                underline={"none"}
-              >
-                {siteTitle}
-              </Link>
-            </h2>
-          </Grid>
-          <Grid item>
-            <Grid container>
-              <Nav/>
+        <header>
+          <div
+            style={{
+              margin: `0 auto`,
+              maxWidth: 960,
+              padding: `1.45rem 1.0875rem`
+            }}
+          >
+            <Grid
+              container
+              justify={"space-between"}
+              alignItems={"center"}
+            >
+              <Grid item>
+                <h2 style={{ margin: 0 }}>
+                  <Link
+                    to="/"
+                    className={classes.link}
+                    underline={"none"}
+                  >
+                    {siteTitle}
+                  </Link>
+                </h2>
+              </Grid>
+              <Grid item>
+                <Grid container>
+                  <Nav/>
+                </Grid>
+              </Grid>
             </Grid>
-          </Grid>
-        </Grid>
-      </div>
-    </header>
+          </div>
+        </header>
+      </AppBar>
+    </ElevationScroll>
   )
 }
 
