@@ -40,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
       padding: `0 1.75rem`
     },
     menuButton: {
-      color: theme.palette.primary.main
+      color: theme.palette.primary.main,
+      marginRight: "-12px"
     },
     hide: {
       display: "none"
@@ -64,8 +65,8 @@ const Header = ({ siteTitle }) => {
   }
 
   return (
-    <ElevationScroll elevation={3}>
-      <ClickAwayListener onClickAway={handleDrawerClose}>
+    <ClickAwayListener onClickAway={handleDrawerClose}>
+      <ElevationScroll elevation={3}>
         <AppBar
           className={classes.appBar}
           position={"sticky"}
@@ -112,25 +113,27 @@ const Header = ({ siteTitle }) => {
               </Grid>
             </Grid>
           </header>
-          <Collapse in={open}>
-            <Paper
-              className={classes.burgerNav}
-              elevation={0}
-            >
-              <List component="nav" aria-label="">
-                {
-                  nav.map(navItem => (
-                    <ListItem button>
-                      <ListItemText primary={navItem.title}/>
-                    </ListItem>
-                  ))
-                }
-              </List>
-            </Paper>
-          </Collapse>
+          <Hidden smUp>
+            <Collapse in={open}>
+              <Paper
+                className={classes.burgerNav}
+                elevation={0}
+              >
+                <List component="nav" aria-label="">
+                  {
+                    nav.map(navItem => (
+                      <ListItem button>
+                        <ListItemText primary={navItem.title}/>
+                      </ListItem>
+                    ))
+                  }
+                </List>
+              </Paper>
+            </Collapse>
+          </Hidden>
         </AppBar>
-      </ClickAwayListener>
-    </ElevationScroll>
+      </ElevationScroll>
+    </ClickAwayListener>
   )
 }
 
