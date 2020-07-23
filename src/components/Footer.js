@@ -105,7 +105,6 @@ const Footer = () => {
           sm={5}
           md={5}
           lg={5}
-          direction={"column"}
         >
           <Grid
             container
@@ -121,7 +120,6 @@ const Footer = () => {
           columns.map(column => (
               <Grid
                 item
-                direction={"column"}
                 xs={6}
                 sm={2}
                 md={2}

@@ -46,7 +46,11 @@ const useStyles = makeStyles((theme) => ({
     hide: {
       display: "none"
     },
-    link: {}
+    link: {},
+    burgerItem: {
+      color: theme.palette.primary.main,
+      textAlign: "center"
+    }
   })
 )
 
@@ -65,12 +69,15 @@ const Header = ({ siteTitle }) => {
   }
 
   return (
-    <ClickAwayListener onClickAway={handleDrawerClose}>
-      <ElevationScroll elevation={3}>
-        <AppBar
-          className={classes.appBar}
-          position={"sticky"}
-        >
+
+    <ClickAwayListener
+      onClickAway={() => alert(1)}
+    >
+    <ElevationScroll elevation={3}>
+      <AppBar
+        className={classes.appBar}
+        position={"sticky"}
+      >
           <header>
             <Grid
               className={classes.header}
@@ -112,28 +119,36 @@ const Header = ({ siteTitle }) => {
                 </Grid>
               </Grid>
             </Grid>
+            <Hidden smUp>
+              <Collapse in={open}>
+                <Paper
+                  className={classes.burgerNav}
+                  elevation={0}
+                >
+                  <List component="nav" aria-label="">
+                    {
+                      nav.map(navItem => (
+                        <ListItem
+                          key={navItem.title}
+                          onClick={handleDrawerClose}
+                          button
+                          alignItems={"center"}
+                          className={classes.burgerItem}
+                        >
+                          <ListItemText
+                            primary={navItem.title}/>
+                        </ListItem>
+                      ))
+                    }
+                  </List>
+                </Paper>
+              </Collapse>
+            </Hidden>
           </header>
-          <Hidden smUp>
-            <Collapse in={open}>
-              <Paper
-                className={classes.burgerNav}
-                elevation={0}
-              >
-                <List component="nav" aria-label="">
-                  {
-                    nav.map(navItem => (
-                      <ListItem button>
-                        <ListItemText primary={navItem.title}/>
-                      </ListItem>
-                    ))
-                  }
-                </List>
-              </Paper>
-            </Collapse>
-          </Hidden>
-        </AppBar>
-      </ElevationScroll>
+      </AppBar>
+    </ElevationScroll>
     </ClickAwayListener>
+
   )
 }
 
