@@ -7,42 +7,53 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Header from "./header"
 import Footer from "./Footer"
-// import "./layout.css"
+import { makeStyles } from "@material-ui/core/styles"
+
+const useStyles = makeStyles((theme) => ({
+    appBar: {
+      backgroundColor: theme.palette.background.default
+    },
+    main: {
+      [theme.breakpoints.up("lg")]: {
+        maxWidth: "1440px"
+      },
+      maxWidth: "960px",
+      margin: `0 auto`,
+      padding: `1.45rem 1.0875rem`
+    }
+  })
+)
 
 const Layout = ({ children }) => {
+  const classes = useStyles()
+
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
+      query SiteTitleQuery {
+          site {
+              siteMetadata {
+                  title
+              }
+          }
       }
-    }
   `)
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Header siteTitle={data.site.siteMetadata.title}/>
+      <div className={classes.main}>
         <main>{children}</main>
-       </div>
-        <Footer />
+      </div>
+      <Footer/>
     </>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout

@@ -3,6 +3,7 @@ import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import { makeStyles, withStyles } from "@material-ui/core/styles"
 import { useSiteNav } from "../hooks/use-site-nav"
+import { Hidden } from "@material-ui/core"
 
 const useStyles = makeStyles({
   item: {
@@ -34,7 +35,7 @@ const StyledTab = withStyles((theme) => ({
     fontSize: theme.typography.pxToRem(18),
     marginRight: theme.spacing(1),
     minWidth: 0,
-    padding: "2px 24px",
+    padding: `2px ${theme.spacing(3)}`,
     "&:focus": {
       opacity: 1
     },
@@ -56,23 +57,25 @@ export default function Nav() {
   }
 
   return (
-    <StyledTabs
-      value={value}
-      onChange={handleChange}
-      indicatorColor="secondary"
-      textColor="secondary"
-      centered
-    >
-      {
-        nav.map(navItem => (
-          <StyledTab
-            key={navItem.hash}
-            className={classes.item}
-            disableRipple={true}
-            disableFocusRipple={true}
-            label={navItem.title}
-          />))
-      }
-    </StyledTabs>
+    <Hidden xsDown>
+      <StyledTabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="secondary"
+        textColor="secondary"
+        centered
+      >
+        {
+          nav.map(navItem => (
+            <StyledTab
+              key={navItem.hash}
+              className={classes.item}
+              disableRipple={true}
+              disableFocusRipple={true}
+              label={navItem.title}
+            />))
+        }
+      </StyledTabs>
+    </Hidden>
   )
 }

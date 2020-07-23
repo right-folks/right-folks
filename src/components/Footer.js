@@ -9,12 +9,19 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main
   },
   footer: {
+    [theme.breakpoints.up('lg')]: {
+      maxWidth: "1440px",
+    },
     maxWidth: "960px",
-    padding: "24px",
     margin: 'auto',
   },
   linkClassName: {
     color: theme.palette.background.default
+  },
+  columnClassName: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: theme.spacing(3),
   }
 }))
 
@@ -62,9 +69,9 @@ const columns = [
   ]
 ]
 
-function getColumn(items, linkClassName) {
+function getColumn(items, columnClassName, linkClassName) {
   return (
-    <>
+    <div className={columnClassName}>
       {
         items.map(column => (
           <Link
@@ -77,7 +84,7 @@ function getColumn(items, linkClassName) {
           </Link>
         ))
       }
-    </>
+    </div>
   )
 }
 
@@ -94,7 +101,10 @@ const Footer = () => {
       >
         <Grid
           item
-          xs={5}
+          xs={6}
+          sm={5}
+          md={5}
+          lg={5}
           direction={"column"}
         >
           <Grid
@@ -102,7 +112,7 @@ const Footer = () => {
             direction={"column"}
           >
             {
-              getColumn(mainColumnItems, classes.linkClassName)
+              getColumn(mainColumnItems, classes.columnClassName, classes.linkClassName)
             }
           </Grid>
         </Grid>
@@ -112,13 +122,16 @@ const Footer = () => {
               <Grid
                 item
                 direction={"column"}
-                xs={2}
+                xs={6}
+                sm={2}
+                md={2}
+                lg={2}
               >
                 <Grid
                   container
                   direction={"column"}
                 >
-                  {getColumn(column, classes.linkClassName)}
+                  {getColumn(column, classes.columnClassName, classes.linkClassName)}
                 </Grid>
               </Grid>
             )
