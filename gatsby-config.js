@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://right-folks.github.io`,
     title: `RightFolks`,
     description: `Technology is nothing. Without right people.`,
     author: `@RightFolks`,
@@ -23,6 +24,7 @@ module.exports = {
     ]
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-theme-material-ui`,
