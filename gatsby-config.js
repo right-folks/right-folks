@@ -8,6 +8,9 @@ module.exports = {
       {
         hash: "demo",
         title: "Demos"
+      }, {
+        hash: "tech",
+        title: "Technologies"
       },
       {
         hash: "team",
@@ -26,6 +29,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/ // See below to configure properly
+        }
+      }
+    },
     {
       resolve: `gatsby-theme-material-ui`,
       options: {
