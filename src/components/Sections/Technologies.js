@@ -8,10 +8,12 @@ import SymfonyLogo from "../../assets/icons/tech/symfony.svg"
 import NestJsLogo from "../../assets/icons/tech/nestjs.svg"
 import ElasticSearchLogo from "../../assets/icons/tech/elasticsearch.svg"
 import GraphqlLogo from "../../assets/icons/tech/graphql.svg"
+import WebRTCLogo from "../../assets/icons/tech/webrtc.svg"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
     technologyBlock: {
+      color: theme.palette.secondary.main,
       padding: theme.spacing(3),
       textAlign: "center",
       WebkitTransition: "all 0.4s",
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         OFilter: "none",
         filter: "none"
       }
-    }
+    },
   })
 )
 
@@ -54,11 +56,14 @@ const stack = [
     logo: NestJsLogo,
     name: "NestJS"
   }, {
+    logo: GraphqlLogo,
+    name: "Graphql"
+  }, {
     logo: ElasticSearchLogo,
     name: "ElasticSearch"
   }, {
-    logo: GraphqlLogo,
-    name: "Graphql"
+    logo: WebRTCLogo,
+    name: "WebRTC"
   }
 ]
 
@@ -88,7 +93,6 @@ const TechnologiesSection = () => {
               )
             }
             <Typography
-              // display={"inline"}
               variant={"h5"}
             >
               {technology.name}
