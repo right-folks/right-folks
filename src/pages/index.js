@@ -44,10 +44,6 @@ const IndexPage = () => {
     OurTeamSection,
     FaqsSection,
     ContactUsSection,
-    // ContactUsSection,
-    // ContactUsSection,
-    // ContactUsSection,
-    // ContactUsSection,
   ]
 
   let iterator = -1

@@ -1,11 +1,57 @@
 import React from "react"
-import { Typography } from "@material-ui/core"
+import QuoteCard from "../QuoteCard"
+import { Grid } from "@material-ui/core"
+
+const data = [
+  {
+    fullName: "Incognito Name1",
+    jobTitle: "Founder, CTO",
+    quote: `
+Don't overestimate technologies.
+People always be more important.
+Right person around allows you
+to achieve your goals. 
+I believe that our team fit your needs.`
+  },
+  {
+    fullName: "Incognito Name2",
+    jobTitle: "CEO",
+    quote: `
+Technology in right people's hands
+create products which contribute to the further human development.
+We are an example of this synergy.
+So, don't lose your chance to move forward!`
+  }
+]
 
 const OurTeamSection = () => {
   return (
-    <Typography>
-      Team data
-    </Typography>
+    <Grid
+      container
+      spacing={3}
+      justify={"center"}
+      alignItems={"stretch"}
+    >
+      {
+        data.map(cardData => {
+          const {
+            fullName,
+            jobTitle,
+            quote
+          } = cardData
+
+          return (
+            <Grid item>
+              <QuoteCard
+                fullName={fullName}
+                jobTitle={jobTitle}
+                quote={quote}
+              />
+            </Grid>
+          )
+        })
+      }
+    </Grid>
   )
 }
 
