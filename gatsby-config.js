@@ -4,6 +4,7 @@ module.exports = {
     title: `RightFolks`,
     description: `Technology is nothing. Without right people.`,
     author: `@RightFolks`,
+    googleSiteVerificationCode: `itot5aPpj7ncc2pQkTDqHQgECDKbaATYg8d7kXScdF8`,
     nav: [
       {
         hash: "demo",
