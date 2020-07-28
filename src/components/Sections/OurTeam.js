@@ -4,6 +4,7 @@ import { Grid } from "@material-ui/core"
 
 const data = [
   {
+    id: 1,
     fullName: "Incognito Name1",
     jobTitle: "Founder, CTO",
     quote: `
@@ -14,6 +15,7 @@ to achieve your goals.
 I believe that our team fit your needs.`
   },
   {
+    id: 2,
     fullName: "Incognito Name2",
     jobTitle: "CEO",
     quote: `
@@ -41,7 +43,10 @@ const OurTeamSection = () => {
           } = cardData
 
           return (
-            <Grid item>
+            <Grid
+              key={cardData.id}
+              item
+            >
               <QuoteCard
                 fullName={fullName}
                 jobTitle={jobTitle}
