@@ -1,38 +1,63 @@
 import React from "react"
 import { Link } from "gatsby-theme-material-ui"
-import { Box, Grid } from "@material-ui/core"
+import { Grid, IconButton } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-
+import GithubLogo from "../assets/icons/social/github.svg"
+import TwitterLogo from "../assets/icons/social/twitter.svg"
+import LinkedinLogo from "../assets/icons/social/linkedin.svg"
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     backgroundColor: theme.palette.primary.main
   },
   footer: {
-    [theme.breakpoints.up('lg')]: {
-      maxWidth: "1440px",
+    [theme.breakpoints.up("lg")]: {
+      maxWidth: "1440px"
     },
     maxWidth: "960px",
-    margin: 'auto',
+    margin: "auto",
+    lineHeight: theme.typography.pxToRem(28),
+    fontSize: theme.typography.pxToRem(16)
   },
   linkClassName: {
     color: theme.palette.background.default
   },
+  mainColumnClassName: {
+    [theme.breakpoints.down("sm")]: {
+      order: 10,
+      "& > div > div": {
+        paddingTop: 0
+      }
+    }
+  },
   columnClassName: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: theme.spacing(3),
+    display: "flex",
+    flexDirection: "column",
+    padding: theme.spacing(3)
+  },
+  companyTitle: {
+    paddingRight: theme.spacing(3),
+    paddingLeft: theme.spacing(3),
+    paddingTop: theme.spacing(3),
+    fontSize: theme.typography.pxToRem(24),
+    fontWeight: theme.typography.fontWeightMedium,
+    color: theme.palette.secondary.main
   }
 }))
 
-const mainColumnItems = [
+const connections = [
   {
-    link: "#",
-    title: "Great Organisation"
-  },
-  {
-    link: "#",
-    title: "Great expectations"
+    name: "Github",
+    logo: GithubLogo,
+    link: "https://github.com/right-folks"
+  }, {
+    name: "Linkedin",
+    logo: LinkedinLogo,
+    link: "https://www.linkedin.com/company/right-folks"
+  }, {
+    name: "Twitter",
+    logo: TwitterLogo,
+    link: "https://twitter.com/RightFolks"
   }
 ]
 
@@ -99,10 +124,21 @@ const Footer = () => {
         alignItems={"flex-start"}
         className={classes.footer}
       >
+        <div className={classes.companyTitle}>
+          RightFolks
+        </div>
+      </Grid>
+      <Grid
+        container
+        justify={"space-between"}
+        alignItems={"flex-start"}
+        className={classes.footer}
+      >
         <Grid
+          className={classes.mainColumnClassName}
           item
-          xs={6}
-          sm={5}
+          xs={12}
+          sm={12}
           md={5}
           lg={5}
         >
@@ -110,8 +146,51 @@ const Footer = () => {
             container
             direction={"column"}
           >
+            <div className={classes.columnClassName}>
+              <Grid item>
+              <Link
+                className={classes.linkClassName}
+                to={"#"}
+                underline={"none"}
+              >
+                RightFolks provides progressive, and affordable healthcare, accessible on mobile and online for everyone
+              </Link>
+              </Grid>
+              <Grid item style={{paddingTop: "16px"}}>
+              <Link
+                className={classes.linkClassName}
+                to={"#"}
+                underline={"none"}
+              >
+                ©RightFolks PTY LTD 2020. All rights reserved
+              </Link>
+              </Grid>
+            </div>
+          </Grid>
+          <Grid
+            container
+            direction={"row"}
+            style={{ paddingLeft: "12px" }}
+          >
             {
-              getColumn(mainColumnItems, classes.columnClassName, classes.linkClassName)
+              connections.map(connection =>
+                <Grid item>
+                  <IconButton
+                    variant="link"
+                    color="default"
+                    href={connection.link}
+                  >
+                    {
+                      React.createElement(connection.logo, {
+                        style: {
+                          width: "24px",
+                          height: "24px"
+                        }
+                      })
+                    }
+                  </IconButton>
+                </Grid>
+              )
             }
           </Grid>
         </Grid>
@@ -120,8 +199,8 @@ const Footer = () => {
           columns.map(column => (
               <Grid
                 item
-                xs={6}
-                sm={2}
+                xs={4}
+                sm={4}
                 md={2}
                 lg={2}
               >
