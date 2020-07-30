@@ -20,15 +20,13 @@ const useStyles = makeStyles((theme) => ({
 const testimonials = [
   {
     id: 1,
-    avatarUrl: `avatar.jpg`,
-    fullName: `John Doe`,
-    position: `Another one developer from Ukraine`,
-    message: `
-It is very important for us to keep abreast
-of the latest developments and to navigate freely in the information space,
-the resources of Medialogy allow us to do this. 
-Every day we can conduct operational monitoring of the media and analyze data online, 
-this saves the time of analysts and journalists. `
+    avatarUrl: `mishchuk.jpeg`,
+    profileUrl: `https://www.linkedin.com/in/edward-mishchuk-29587613a/`,
+    fullName: `Edward Mishchuk`,
+    position: `Founder & CEO`,
+    companyName: `Primary Exotics`,
+    companyUrl: `https://www.primaryexotics.com/`,
+    message: `Oleg does great work, he's very helpful, and a great problem solver!`
 
   }
 ]
@@ -37,7 +35,10 @@ const TestimonialsSection = () => {
 
   return (
     <>
-      <Grid container className={classes.sectionTitleBox}>
+      <Grid
+        container
+        direction={"column" }
+        className={classes.sectionTitleBox}>
         {
           testimonials.map(testimonial => (
               <Grid item key={testimonial.id}>

@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 const TestimonialCard = ({
                            fullName,
                            position,
+                           companyName,
                            message,
                            avatarUrl
                          }) => {
@@ -86,13 +87,13 @@ const TestimonialCard = ({
       </Typography>
       <Typography component={"h2"} className={classes.position}>
         {
-          position
+          `${position} at ${companyName}`
         }
       </Typography>
       <Typography className={classes.message}>
-        {
+        "{
           message
-        }
+        }"
       </Typography>
     </Paper>
   )
