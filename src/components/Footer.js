@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
       "& > div > div": {
         paddingTop: 0
       }
-    }
+    },
+    paddingBottom: theme.spacing(1),
   },
   columnClassName: {
     display: "flex",
@@ -139,8 +140,8 @@ const Footer = () => {
           item
           xs={12}
           sm={12}
-          md={5}
-          lg={5}
+          md={9}
+          lg={9}
         >
           <Grid
             container
@@ -153,8 +154,8 @@ const Footer = () => {
                 to={"#"}
                 underline={"none"}
               >
-                RightFolks provides progressive, and affordable healthcare, accessible on mobile and online for everyone
-              </Link>
+                RightFolks delivers sophisticated web and mobile solutions for
+                private individuals, startups and established enterprises at a reasonable price              </Link>
               </Grid>
               <Grid item style={{paddingTop: "16px"}}>
               <Link
@@ -196,7 +197,7 @@ const Footer = () => {
         </Grid>
 
         {
-          columns.map(column => (
+          [].map(column => (
               <Grid
                 item
                 xs={4}

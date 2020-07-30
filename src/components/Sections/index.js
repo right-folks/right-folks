@@ -4,6 +4,7 @@ import DemoSection from './Demos'
 import FaqsSection from './FAQs'
 import OurTeamSection from './OurTeam'
 import TechnologiesSection from './Technologies'
+import TestimonialsSection from './Testimonials'
 
 export {
   MainSection,
@@ -12,4 +13,5 @@ export {
   FaqsSection,
   OurTeamSection,
   TechnologiesSection,
+  TestimonialsSection,
 }

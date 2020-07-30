@@ -31,7 +31,8 @@ export default function Faq({ faqs }) {
         }
       }
       container
-      xs={10}
+      xs={12}
+      md={8}
       direction={"column"}
       justify={"center"}
     >

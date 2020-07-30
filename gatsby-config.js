@@ -18,6 +18,10 @@ module.exports = {
         title: "Our Team"
       },
       {
+        hash: "testimonials",
+        title: "Testimonials"
+      },
+      {
         hash: "faq",
         title: "FAQs"
       },

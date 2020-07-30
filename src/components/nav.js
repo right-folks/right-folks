@@ -57,7 +57,7 @@ export default function Nav() {
   }
 
   return (
-    <Hidden xsDown>
+    <Hidden smDown>
       <StyledTabs
         value={value}
         onChange={handleChange}

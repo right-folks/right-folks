@@ -98,7 +98,7 @@ const Header = ({ siteTitle }) => {
               <Grid item>
                 <Grid container>
                   <Nav/>
-                  <Hidden smUp>
+                  <Hidden mdUp>
                     <IconButton
                       color="inherit"
                       aria-label="open drawer"

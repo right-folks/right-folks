@@ -79,7 +79,11 @@ const ContactUsForm = () => {
       container
       justify={"center"}
     >
-      <Grid item xs={12} sm={8} md={6}>
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={8}>
         <Formik
           initialValues={{
             email: "",
@@ -126,7 +130,7 @@ const ContactUsForm = () => {
                   type="submit"
                   variant="contained"
                   color="primary"
-                  size="small"
+                  size="large"
                   disabled={isSubmitting}
                   onClick={submitForm}
                 >

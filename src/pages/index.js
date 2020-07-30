@@ -6,12 +6,13 @@ import { makeStyles } from "@material-ui/core/styles"
 import SectionTitle from "../components/SectionTitle"
 import { useSiteNav } from "../hooks/use-site-nav"
 import {
-MainSection,
-TechnologiesSection,
-OurTeamSection,
-FaqsSection,
-DemoSection,
-  ContactUsSection
+  MainSection,
+  TechnologiesSection,
+  OurTeamSection,
+  FaqsSection,
+  DemoSection,
+  ContactUsSection,
+  TestimonialsSection
 } from "../components/Sections"
 
 const useStyles = makeStyles((theme) => ({
@@ -42,8 +43,9 @@ const IndexPage = () => {
     DemoSection,
     TechnologiesSection,
     OurTeamSection,
+    TestimonialsSection,
     FaqsSection,
-    ContactUsSection,
+    ContactUsSection
   ]
 
   let iterator = -1
@@ -55,7 +57,7 @@ const IndexPage = () => {
       <MainSection/>
       {
         nav.map(navItem => {
-            iterator++;
+            iterator++
 
             return <>
               <SectionTitle
