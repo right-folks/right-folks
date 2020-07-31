@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby-theme-material-ui"
-import { Grid, IconButton } from "@material-ui/core"
+import { Grid, IconButton, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import GithubLogo from "../assets/icons/social/github.svg"
 import TwitterLogo from "../assets/icons/social/twitter.svg"
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: theme.typography.pxToRem(28),
     fontSize: theme.typography.pxToRem(16)
   },
-  linkClassName: {
+  footerText: {
     color: theme.palette.background.default
   },
   mainColumnClassName: {
@@ -95,14 +95,14 @@ const columns = [
   ]
 ]
 
-function getColumn(items, columnClassName, linkClassName) {
+function getColumn(items, columnClassName, footerText) {
   return (
     <div className={columnClassName}>
       {
         items.map(column => (
           <Link
             key={column.title}
-            className={linkClassName}
+            className={footerText}
             to={column.link}
             underline={"none"}
           >
@@ -149,22 +149,19 @@ const Footer = () => {
           >
             <div className={classes.columnClassName}>
               <Grid item>
-              <Link
-                className={classes.linkClassName}
-                to={"#"}
-                underline={"none"}
+              <Typography
+                className={classes.footerText}
               >
                 RightFolks delivers sophisticated web and mobile solutions for
-                private individuals, startups and established enterprises at a reasonable price              </Link>
+                private individuals, startups and established enterprises at a reasonable price
+              </Typography>
               </Grid>
               <Grid item style={{paddingTop: "16px"}}>
-              <Link
-                className={classes.linkClassName}
-                to={"#"}
-                underline={"none"}
+              <Typography
+                className={classes.footerText}
               >
                 ©RightFolks PTY LTD 2020. All rights reserved
-              </Link>
+              </Typography>
               </Grid>
             </div>
           </Grid>
@@ -209,7 +206,7 @@ const Footer = () => {
                   container
                   direction={"column"}
                 >
-                  {getColumn(column, classes.columnClassName, classes.linkClassName)}
+                  {getColumn(column, classes.columnClassName, classes.footerText)}
                 </Grid>
               </Grid>
             )

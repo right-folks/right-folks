@@ -2,7 +2,7 @@ import MainSection from './Main';
 import ContactUsSection from './ContactUs';
 import DemoSection from './Demos'
 import FaqsSection from './FAQs'
-import OurTeamSection from './OurTeam'
+import OurLeadersSection from './OurLeaders'
 import TechnologiesSection from './Technologies'
 import TestimonialsSection from './Testimonials'
 
@@ -11,7 +11,7 @@ export {
   ContactUsSection,
   DemoSection,
   FaqsSection,
-  OurTeamSection,
+  OurLeadersSection,
   TechnologiesSection,
   TestimonialsSection,
 }

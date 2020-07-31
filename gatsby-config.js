@@ -14,8 +14,8 @@ module.exports = {
         title: "Technologies"
       },
       {
-        hash: "team",
-        title: "Our Team"
+        hash: "leaders",
+        title: "Our Leaders"
       },
       {
         hash: "testimonials",

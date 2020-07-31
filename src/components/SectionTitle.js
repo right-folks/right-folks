@@ -5,7 +5,8 @@ import { makeStyles } from "@material-ui/core/styles"
 const useStyles = makeStyles((theme) => ({
   sectionTitleBox: {
     textAlign: "center",
-    marginTop: '16px'
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
   },
   sectionTitle: {
     color: theme.palette.secondary.main,

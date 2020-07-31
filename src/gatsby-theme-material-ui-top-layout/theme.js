@@ -46,6 +46,14 @@ const theme = createMuiTheme({
           borderBottom: 0
         }
       }
+    },
+    MuiMobileStepper: {
+      dot: {
+        borderRadius: 2,
+        width: 32,
+        height: 4,
+        margin: '0 2px'
+      }
     }
   }
 })

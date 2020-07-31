@@ -1,12 +1,14 @@
 import React from "react"
-import QuoteCard from "../QuoteCard"
-import { Grid } from "@material-ui/core"
+import { Grid, Hidden } from "@material-ui/core"
+import Leaders from "../Leaders"
+import SwipeableLeaders from "../SwipeableLeaders"
 
 const data = [
   {
     id: 1,
     fullName: "Incognito Name1",
     jobTitle: "Founder, CTO",
+    avatarUrl: `stalonne.jpeg`,
     quote: `
 Don't overestimate technologies.
 People always be more important.
@@ -18,6 +20,7 @@ I believe that our team fit your needs.`
     id: 2,
     fullName: "Incognito Name2",
     jobTitle: "CEO",
+    avatarUrl: `brad.jpg`,
     quote: `
 Technology in right people's hands
 create products which contribute to the further human development.
@@ -26,7 +29,7 @@ So, don't lose your chance to move forward!`
   }
 ]
 
-const OurTeamSection = () => {
+const OurLeadersSection = () => {
   return (
     <Grid
       container
@@ -34,30 +37,14 @@ const OurTeamSection = () => {
       justify={"center"}
       alignItems={"stretch"}
     >
-      {
-        data.map(cardData => {
-          const {
-            fullName,
-            jobTitle,
-            quote
-          } = cardData
-
-          return (
-            <Grid
-              key={cardData.id}
-              item
-            >
-              <QuoteCard
-                fullName={fullName}
-                jobTitle={jobTitle}
-                quote={quote}
-              />
-            </Grid>
-          )
-        })
-      }
+      <Hidden smDown>
+        <Leaders leaders={data}/>
+      </Hidden>
+      <Hidden mdUp>
+        <SwipeableLeaders leaders={data}/>
+      </Hidden>
     </Grid>
   )
 }
 
-export default OurTeamSection
+export default OurLeadersSection

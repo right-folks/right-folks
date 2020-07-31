@@ -8,7 +8,7 @@ import { useSiteNav } from "../hooks/use-site-nav"
 import {
   MainSection,
   TechnologiesSection,
-  OurTeamSection,
+  OurLeadersSection,
   FaqsSection,
   DemoSection,
   ContactUsSection,
@@ -42,7 +42,7 @@ const IndexPage = () => {
   const sections = [
     DemoSection,
     TechnologiesSection,
-    OurTeamSection,
+    OurLeadersSection,
     TestimonialsSection,
     FaqsSection,
     ContactUsSection
