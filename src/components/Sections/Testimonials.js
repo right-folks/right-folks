@@ -37,11 +37,18 @@ const TestimonialsSection = () => {
     <>
       <Grid
         container
-        direction={"column" }
+        direction={"column"}
+        alignItems={"center"}
         className={classes.sectionTitleBox}>
         {
           testimonials.map(testimonial => (
-              <Grid item key={testimonial.id}>
+              <Grid
+                item
+                key={testimonial.id}
+                xs={12}
+                sm={10}
+                md={8}
+              >
                 <TestimonialCard {...testimonial}/>
               </Grid>
             )
